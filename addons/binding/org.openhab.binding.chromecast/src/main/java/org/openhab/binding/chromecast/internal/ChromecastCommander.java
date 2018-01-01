@@ -87,9 +87,6 @@ public class ChromecastCommander {
             status = chromeCast.getStatus();
             statusUpdater.processStatusUpdate(status);
 
-            if (status == null) {
-                scheduler.cancelRefresh();
-            }
         } catch (IOException ex) {
             logger.debug("Failed to request status: {}", ex.getMessage());
             statusUpdater.updateStatus(ThingStatus.OFFLINE, COMMUNICATION_ERROR, ex.getMessage());
